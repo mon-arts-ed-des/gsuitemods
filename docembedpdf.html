@@ -83,7 +83,7 @@
 		}
         //window.alert(vPosition);
         var divOpen="<div>"
-        var docFrame="<iframe src=\""+gDocPubLink+"\" width=\"100%\" height=\""+gDocHeight+"\" frameBorder=\"0\"></iframe>"
+        var docFrame="<iframe src=\""+gDocPubLink+"\" width=\"100%\" height=\""+gDocHeight+"px\" frameBorder=\"0\"></iframe>"
         var divClose="</div>"
         var dlPDFtext="<div><p><a href=\""+gDocShareLink+"\" target=\"_blank\">Download this document as a PDF</a></p></div>"
 
@@ -197,6 +197,11 @@
           <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>
           </div>
       <h1 class="text-center"><i class="fa fa-file-pdf-o"></i> Embed Doc + Doc to PDF ink </h1>
+      <span class="hideableinstruct">
+      <h5>The result of this process</h5>
+          <p>This process will generate embed code for a Google Doc and also provide a link for users to download the Doc as a PDF.</p>
+          <h5>Why is this useful?</h5>
+          <p>If you have important information, that is regularly updated such as a unit schedule, assessment schedule or and key dates, you can update the Google Doc you link to here. Then you can embed it, and it will dynamically update in your embed code and the link to the PDF will download the latest version as well, rather than needing to download/upload new documentation into Moodle.</p>
      <h5>How to use this page</h5>
      <p>If you hover your mouse over the headings for the steps on this page instructions will appear. Once you have generated and copied the code for your doc paste the code into Moodle using the HTML editor. If you are unsure of how to paste HTML into Moodle, <a data-toggle="modal" data-target=".html-paste-modal" href="">this short video will help</a> (it will open in an overlay on this screen).</p>
      <div class="modal fade html-paste-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -212,8 +217,10 @@
          </div>
        </div>
      </div>
+     <h5>How to find the links needed for this tool to work</h5>
+     <p>Below are the video walkthroughs that will guide you to the required links to use this tool correctly. Click on the links below and the video will open in an overlay on the screen.</p>
      <ul>
-         <li><a data-toggle="modal" data-target=".publishing-modal" href="">Find the publishing link</a>
+         <li><a data-toggle="modal" data-target=".publishing-modal" href="">Find the Google Doc publishing link (0:31)</a>
             <div class="modal fade publishing-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                   <div class="modal-content p-2">
@@ -228,7 +235,7 @@
                 </div>
               </div>
          </li>
-         <li><a data-toggle="modal" data-target=".sharing-modal" href="">Find the share link</a>
+         <li><a data-toggle="modal" data-target=".sharing-modal" href="">Find the Google Doc share link (0:35)</a>
             <div class="modal fade sharing-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                   <div class="modal-content p-2">
@@ -244,6 +251,7 @@
               </div>
          </li>
         </ul>
+      </span>
      <h5>Refresh this page</h5>
      <div class="row w-100">
        <div class="col-lg">
@@ -251,16 +259,23 @@
      <div class="col-lg-3"><div class="text-center">
        <a href="javascript:window.location.reload()" class="btn btn-mu">Refresh the page <i class="fa fa-fw fa-refresh"></i></a>
      </div></div></div>
+     <h5>Advanced mode - turn <span class="onoffswapinstr">off</span> instructions</h5>
+        <div class="row w-100">
+          <div class="col-lg">
+        <p>Click this button to turn <span class="onoffswapinstr">off</span> the instructions that appear when you hover over the headings.<span class="hideableinstruct"> Only do this if you are completely familiar with how to use the tool.</span></p></div>
+        <div class="col-lg-3"><div class="text-center">
+          <button onclick="flipTooltip()" class="btn btn-mu">Turn <span class="onoffswapinstr">off</span> instructions <i class="fa fa-fw fa-power-off"></i></a>
+        </div></div></div>
      <form id="docEmbeddedPlusDocToPDF">    
         <div class="row w-100 mx-auto mt-2">
           <div class="col-lg-8">
-              <h5 class="w-50" data-toggle="tooltip" data-placement="right" data-trigger="hover focus" title="Paste in your Google Doc's publishing link. You can find this under File > Publish to the web > Link after you click the Publish button. If you are unsure of where to find this follow the instructions at the top of the page for 'Finding the publishing link'.">Step 1 - Paste the Docs Publishing link</h5>
+              <h5 class="w-50" data-toggle="tooltip" data-placement="right" data-trigger="hover focus" title="Paste in your Google Doc's publishing link. You can find this under File > Publish to the web > Link after you click the Publish button. If you are unsure of where to find this follow the instructions at the top of the page for 'Find the Google Doc publishing link'.">Step 1 - Paste the Docs Publishing link</h5>
               <textarea class="rounded p-2 w-100" rows="1" name="gDocPubLink" id="gDocPubLink" placeholder="Paste the publish link here"></textarea>
               </div>
               </div> 
               <div class="row w-100 mx-auto mt-2">
                 <div class="col-lg-8">
-                    <h5 class="w-50" data-toggle="tooltip" data-placement="right" data-trigger="hover focus" title="Paste in your Google Doc's share link. You can find this by clicking the blue Share button in the top right of your doc, and then selecting Copy link. If you are unsure of where to find this follow the instructions at the top of the page for 'Finding the sharing link'.">Step 2 - Paste the Docs Share link</h5>
+                    <h5 class="w-50" data-toggle="tooltip" data-placement="right" data-trigger="hover focus" title="Paste in your Google Doc's share link. You can find this by clicking the blue share button in the top right of your doc > clicking 'change to Monash University' in the copy link popup that appears > then selecting copy link. If you are unsure of where to find this follow the instructions at the top of the page for 'Find the Google Doc sharing link'.">Step 2 - Paste the Docs Share link</h5>
                     <textarea class="rounded p-2 w-100" rows="1" name="gDocShareLink" id="gDocShareLink" placeholder="Paste the publish link here"></textarea>
                     </div>
                     </div> 
@@ -272,7 +287,7 @@
                       </div>
                       <div class="row w-100 mx-auto  mt-2">
                         <div class="col-lg-8">
-                          <h5 class="w-50" data-toggle="tooltip" data-placement="right" data-trigger="hover focus" title="Choose whether the link to download your embedded doc as a PDF appears above OR below your embedded doc. Above is chosen by default.">Step 5 - Above or Below</h5>
+                          <h5 class="w-50" data-toggle="tooltip" data-placement="right" data-trigger="hover focus" title="Choose whether the link to download your embedded doc as a PDF appears above OR below your embedded doc. Above is chosen by default.">Step 4 - Above or Below</h5>
                                 <select class="custom-select w-50 border border-dark" id="aORb" name="aORb" size="1">
                                 <option selected value="A">Above</option>
                                 <option value="B">Below</option>
@@ -281,13 +296,13 @@
                             </div>
               <div class="row w-100 mx-auto  mt-2">
                 <div class="col-lg-8">
-                  <h5 class="w-50" data-toggle="tooltip" data-placement="right" data-trigger="hover focus" title="This is optional. If you have put a heading inside of your Google Doc, do not also put a heading here. If you do need a heading, type it here and ensure you choose a heading size in Step 5. 75 character maximum.">Step 4 - Heading (optional)</h5>
+                  <h5 class="w-50" data-toggle="tooltip" data-placement="right" data-trigger="hover focus" title="This is optional. If you have put a heading inside of your Google Doc, do not also put a heading here. If you do need a heading, type it here and ensure you choose a heading size in Step 6. 75 character maximum.">Step 5 - Heading (optional)</h5>
                   <textarea maxlength="75" class="rounded p-2 w-100" rows="1" name="docHeading" type="text" id="docHeading" placeholder="Type a heading here that will sit above your embed code."></textarea>
                 </div>
               </div>
       <div class="row w-100 mx-auto mt-2">
       <div class="col-lg-8">
-        <h5 class="w-50" data-toggle="tooltip" data-placement="right" data-trigger="hover focus" title="Choose the size of your heading. No heading is chosen by default. If you do not choose a heading size, your heading will not display.">Step 5 - Heading size (optional)</h5>
+        <h5 class="w-50" data-toggle="tooltip" data-placement="right" data-trigger="hover focus" title="Choose the size of your heading. No heading is chosen by default. If you do not choose a heading size, your heading from step 5 will not display correctly.">Step 6 - Heading size (optional)</h5>
               <select class="custom-select w-50 border border-dark" id="headSize" name="headSize" size="1">
               <option selected value="noH">No heading</option>
               <option value="h5">Small (h5)</option>
@@ -298,7 +313,7 @@
           </div>   
           <div class="row w-100 mx-auto mt-2">
             <div class="col-lg-8">
-              <h5 class="w-50" data-toggle="tooltip" data-placement="right" data-trigger="hover focus" title="Choose an icon to go with your heading. No icon is selected by default. If you want an icon, you must also write a heading (step 2) and choose a heading size (step 3) or the icon and heading will not display.">Step 6 - Select icon (optional)</h5>
+              <h5 class="w-50" data-toggle="tooltip" data-placement="right" data-trigger="hover focus" title="Choose an icon to go with your heading. No icon is selected by default. If you want an icon, you must also write a heading (step 5) and choose a heading size (step 6) or the icon and heading will not display.">Step 7 - Select icon (optional)</h5>
               <select class="custom-select w-50 border border-dark" id="faCode" name="faCode" size="1">
                 <option selected value="noI">No icon</option>
                   <option value="1">Calendar</option>
@@ -311,20 +326,20 @@
             </div>
     <div class="row w-100 mx-auto mt-2">
     <div class="col-lg-8">
-        <h5 class="w-50" data-toggle="tooltip" data-placement="right" data-trigger="hover focus" title="If you choose to write in this space, what you write will appear above your embedded document.">Step 7 - Write the context for your document (optional)</h5>
-        <textarea class="mb-3 rounded p-2 w-100" cols="70" rows="3" name="doc_text" id="tinyMCEdoc1" placeholder="Write/paste the text for the button here"></textarea>
+        <h5 class="w-50" data-toggle="tooltip" data-placement="right" data-trigger="hover focus" title="If you choose to write in this space, what you write will appear above your embedded document.">Step 8 - Write the context for your document (optional)</h5>
+        <textarea class="mb-3 rounded p-2 w-100" cols="70" rows="3" name="doc_text" id="tinyMCEdoc1"></textarea>
       </div>
     </div>
         <div class="row w-100 mx-auto mt-2">
         <div class="col-lg-8">
-          <h5 class="w-50" data-toggle="tooltip" data-placement="right" data-trigger="hover focus" title="Click this button to generate and copy the code for your element ready for pasting in Moodle. A preview of the element will appear under Step 7.">Step 8 - Generate/copy code</h5>
+          <h5 class="w-50" data-toggle="tooltip" data-placement="right" data-trigger="hover focus" title="Click this button to generate and copy the code for your element ready for pasting in Moodle. A preview of the element will appear under Step 10.">Step 9 - Generate/copy code</h5>
         <div><p id="popup"> <span class="popuptext" id="myPopup">Your code has been copied</span> <input type="button" class="m-1 btn btn-arts" name="copyCode" value="Click to generate and copy code" onClick=generateDocCode()></input></div>
            <textarea readonly class="rounded p-2 w-100" id="txtareaDocCode" cols="70" rows="3" name="Result" placeholder="Code for your Google doc will appear here."></textarea>
         </div>
     </div>
     <div class="row w-100 mx-auto mt-2 mb-3">
       <div class="col-lg">
-        <h5 style="width:33.33%;" data-toggle="tooltip" data-placement="right" data-trigger="hover focus" title="A preview of your element will appear below when you click the generate code button in Step 8.">Step 9 - Preview</h5>
+        <h5 style="width:33.33%;" data-toggle="tooltip" data-placement="right" data-trigger="hover focus" title="A preview of your element will appear below when you click the generate code button in Step 9.">Step 10 - Preview</h5>
         </div>
         </div>
       
